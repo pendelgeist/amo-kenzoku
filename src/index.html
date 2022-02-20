@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet">
+  <title>AMO 眷属</title>
+  <style>
+    body {
+      font-family : 'Raleway', sans-serif;
+    }
+
+    h1 {
+      font-size      : 68px;
+      font-stretch   : expanded;
+      font-weight    : bolder;
+      letter-spacing : 0.5rem;
+      line-height    : 1;
+      margin         : 1rem;
+      text-align     : center;
+    }
+
+    nav {
+      box-shadow    : rgb(0 0 0 / 6%) 0 1px 6px 0, rgb(0 0 0 / 16%) 0 2px 32px 0;
+      display       : flex;
+      margin-bottom : 1rem;
+    }
+
+    nav > a {
+      padding : 0.75rem;
+    }
+
+    #episode-list {
+      align-items    : flex-start;
+      display        : none;
+      flex-direction : column;
+      justify-items  : center;
+      padding        : 5px;
+    }
+
+    main {
+      display        : flex;
+      flex-direction : column;
+    }
+
+    article {
+      box-shadow     : rgb(0 0 0 / 6%) 0 1px 6px 0, rgb(0 0 0 / 16%) 0 2px 32px 0;
+      display        : flex;
+      flex-direction : row;
+      margin-bottom  : 1rem;
+    }
+
+    article > a {
+      padding : 3px 0 0 3px;
+    }
+
+    .entry-image > img {
+      height     : auto;
+      max-height : 250px;
+      max-width  : 250px;
+    }
+
+    .entry-description {
+      font-weight : 500;
+    }
+
+    @media screen and (max-width : 500px) {
+      .entry-image {
+        display : none;
+      }
+    }
+
+    .entry-body {
+      flex-grow : 1;
+      padding   : 0 0.5rem;
+    }
+
+    .entry-published {
+      font-size   : smaller;
+      font-weight : lighter;
+    }
+
+    @media (prefers-color-scheme : dark) {
+      body {
+        background-color : black;
+      }
+
+      h1 {
+        color : #00a200;
+      }
+
+      nav {
+        background-color : black;
+      }
+
+      nav > a {
+        color : red;
+      }
+
+      #episode-list > a {
+        color : orangered;
+      }
+
+      article {
+        background-color : #111;
+      }
+
+      .entry-title > a {
+        background-color : black;
+        color            : red;
+      }
+
+      .entry-published {
+        color : #00a200;
+      }
+
+      .entry-description {
+        color : #00a200;
+      }
+    }
+
+    @media (prefers-color-scheme : light) {
+      body {
+        background-color : #f5f5f5;
+      }
+
+      nav {
+        background-color : #315979;
+      }
+
+      nav > a {
+        color : #fff;
+      }
+
+      #episode-list > a {
+        color : #27f7e4;
+      }
+
+      article {
+        background-color : #fff;
+      }
+
+      .entry-published {
+        color : #666;
+      }
+    }
+  </style>
+</head>
+<body>
+<h1>AMO 眷属</h1>
+<nav>
+  <a href="#" id="episode-list-toggle">Podcasts ...</a>
+  <div id="episode-list">
+    <a href="#episode-001">Episode 001</a>
+    <a href="#episode-002">Episode 002</a>
+  </div>
+  <a href="#">Twitter</a>
+</nav>
+<main class="content">
+  <article class="entry-episode" id="episode-001">
+    <a aria-label="Episode 1 Mp3 Link" class="entry-image" href="../assets/images/amo-kenzoku--001.jpg">
+      <img alt="AMO Kenzoku logo and Evangelion Unit 01 with mouth open" src="../assets/images/amo-kenzoku--001.jpg">
+    </a>
+    <div class="entry-body">
+      <h2 class="entry-title">
+        <a href="../assets/podcasts/amo-kenzoku--001.mp3">Rebuild of Evangelion - Part 1</a>
+      </h2>
+      <div class="entry-published">
+        <span>Published on</span>
+        <time class="entry-date" datetime="2022-02-18T00:00:00-05:00">18 February 2022</time>
+      </div>
+      <br/>
+      <div class="entry-description">
+        Premier Episode of AMO Kenzoku is all about the Evangelion Rebuild
+        movies, and some on the TV series too
+      </div>
+    </div>
+  </article>
+  <article class="entry-episode" id="episode-002">
+    <a aria-label="Episode 2 Mp3 Link" class="entry-image" href="../assets/podcasts/amo-kenzoku--001.mp3">
+      <img alt="Makinami Mari Illustrious" src="../assets/images/amo-kenzoku--002.png">
+    </a>
+    <div class="entry-body">
+      <h2 class="entry-title">
+        <a href="../assets/podcasts/amo-kenzoku--001.mp3">Rebuild of Evangelion - Part 2 : You Can (Not) Elucidate</a>
+      </h2>
+      <div class="entry-published">
+        <span>Published on</span>
+        <time class="entry-date" datetime="2022-02-18T00:00:00-05:00">22 February 2022</time>
+      </div>
+      <br/>
+      <div class="entry-description">
+        Evangelion Rebuild discussion Part Two. Plots. Spoilers Galore. Enjoy.
+      </div>
+    </div>
+  </article>
+</main>
+<script>
+  const episodeListToggle = document.getElementById("episode-list-toggle");
+  const episodeList = document.getElementById("episode-list");
+  episodeListToggle.addEventListener("click", () => {
+    if (
+      episodeListToggle.attributes["expanded"] === true
+    ) {
+      episodeList.style.display = "none";
+      episodeListToggle.attributes["expanded"] = false;
+    } else {
+      episodeList.style.display = "flex";
+      episodeListToggle.attributes["expanded"] = true;
+    }
+  });
+</script>
+</body>
+</html>
